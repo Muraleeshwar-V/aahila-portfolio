@@ -1,117 +1,940 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Aahila Parveen | AI & Data Science</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Aahila Parveen | AI & Data Science Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- =========================
+     TAILWIND CSS CDN
+========================= -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- =========================
+     GOOGLE FONTS
+========================= -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<!-- =========================
+     AOS ANIMATION
+========================= -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- =========================
+     GSAP + SCROLLTRIGGER
+========================= -->
+<script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<!-- =========================
+     LENIS SMOOTH SCROLL
+========================= -->
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.34/bundled/lenis.min.js"></script>
+
+<!-- =========================
+     GLOBAL STYLES (CUSTOM)
+========================= -->
+<style>
+
+/* ================= RESET ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,body{
+  font-family:Inter,system-ui;
+  scroll-behavior:smooth;
+  background:#020617;
+  color:#e5e7eb;
+  overflow-x:hidden;
+}
+
+/* ================= VARIABLES ================= */
+:root{
+  --bg:#020617;
+  --panel:#020617;
+  --glass:rgba(255,255,255,0.06);
+  --border:rgba(255,255,255,0.12);
+  --text:#e5e7eb;
+  --muted:#94a3b8;
+  --accent:#38bdf8;
+  --accent2:#a78bfa;
+  --shadow:0 40px 120px rgba(0,0,0,.7);
+}
+
+/* ================= BACKGROUND GRID ================= */
+.bg-grid{
+  position:fixed;
+  inset:0;
+  background:
+    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size:60px 60px;
+  z-index:-3;
+}
+
+/* ================= NOISE OVERLAY ================= */
+.noise{
+  position:fixed;
+  inset:0;
+  background:url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity:0.04;
+  z-index:-2;
+}
+
+/* ================= NAVBAR ================= */
+nav{
+  position:fixed;
+  top:24px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:1000;
+  display:flex;
+  gap:28px;
+  padding:14px 30px;
+  border-radius:999px;
+  background:rgba(2,6,23,.7);
+  backdrop-filter:blur(16px);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+}
+
+nav a{
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:700;
+  color:var(--muted);
+  transition:.3s;
+}
+
+nav a:hover{
+  color:var(--accent);
+}
+
+/* ================= SECTIONS BASE ================= */
+.section{
+  min-height:100vh;
+  padding:160px 8vw;
+  position:relative;
+}
+
+.section-title{
+  font-size:clamp(2.5rem,5vw,4rem);
+  font-weight:900;
+  margin-bottom:40px;
+  letter-spacing:-0.04em;
+}
+
+/* ================= BUTTONS ================= */
+.btn-primary{
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#020617;
+  padding:14px 28px;
+  border-radius:999px;
+  font-weight:800;
+  transition:.3s;
+}
+
+.btn-primary:hover{
+  transform:translateY(-4px);
+}
+
+.btn-outline{
+  border:1px solid var(--border);
+  padding:14px 28px;
+  border-radius:999px;
+  font-weight:700;
+  transition:.3s;
+}
+
+.btn-outline:hover{
+  border-color:var(--accent);
+}
+
+</style>
 </head>
 
 <body>
 
-<canvas id="bg"></canvas>
+<div class="bg-grid"></div>
+<div class="noise"></div>
+<!-- =========================
+     NAVBAR
+========================= -->
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#experience">Experience</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-<header class="hero">
-  <h1 class="glitch">AAHILA PARVEEN</h1>
-  <p class="subtitle">AI & Data Science Engineer</p>
-  <p class="tagline">
-    Building intelligent systems using Machine Learning, Deep Learning & AI Engineering
-  </p>
-</header>
+<!-- =========================
+     HERO SECTION
+========================= -->
+<section id="home" class="section flex items-center justify-center">
 
-<section class="flow">
-  <h2>Objective</h2>
-  <p>
-    Motivated AI and Data Science student with a strong interest in Machine Learning,
-    Deep Learning, and AI Engineering. Passionate about applying analytical skills to
-    real-world problems and creating intelligent, scalable AI systems.
-  </p>
-</section>
+  <div class="max-w-5xl text-center">
 
-<section class="flow">
-  <h2>Skills</h2>
-  <div class="skills">
-    <span>Python</span>
-    <span>Machine Learning</span>
-    <span>Deep Learning</span>
-    <span>TensorFlow</span>
-    <span>Streamlit</span>
-    <span>Pandas</span>
-    <span>HTML</span>
-    <span>DSA (Python)</span>
+    <!-- floating tag -->
+    <div class="inline-block mb-6 px-5 py-2 rounded-full border border-slate-700 text-xs tracking-widest text-slate-400"
+         data-aos="fade-down">
+      AI • DATA SCIENCE • MACHINE LEARNING
+    </div>
+
+    <!-- main heading -->
+    <h1 class="text-[clamp(3.5rem,8vw,6.5rem)] font-black leading-[0.95] tracking-tight"
+        data-aos="fade-up">
+      Aahila  
+      <span class="block bg-gradient-to-r from-sky-400 to-violet-400 bg-clip-text text-transparent">
+        Parveen
+      </span>
+    </h1>
+
+    <!-- subtitle -->
+    <p class="mt-8 text-lg md:text-xl text-slate-400 max-w-3xl mx-auto"
+       data-aos="fade-up" data-aos-delay="150">
+      Artificial Intelligence & Data Science student focused on building
+      intelligent systems using Machine Learning, Deep Learning,
+      and real-world data pipelines.
+    </p>
+
+    <!-- CTA buttons -->
+    <div class="mt-12 flex flex-wrap justify-center gap-6"
+         data-aos="fade-up" data-aos-delay="300">
+      <a href="#projects" class="btn-primary">
+        Explore Work
+      </a>
+      <a href="Aahila_Parveen_resume.pdf" class="btn-outline">
+        View Resume
+      </a>
+    </div>
+
   </div>
+
+  <!-- scroll indicator -->
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-xs tracking-widest text-slate-500 animate-pulse">
+    SCROLL ↓
+  </div>
+
 </section>
+<!-- =========================
+     ABOUT SECTION
+========================= -->
+<section id="about" class="section">
 
-<section class="flow">
-  <h2>Experience</h2>
-  <p>
-    <strong>Data Science Intern — Elysium Technologies</strong><br>
-    Worked on data preprocessing, feature extraction, ML model training and evaluation.
-    Improved workflow efficiency by 20% and gained real-time data handling experience.
-  </p>
+  <!-- section heading -->
+  <div class="mb-20">
+    <h2 class="section-title"
+        data-aos="fade-right">
+      About
+    </h2>
+  </div>
 
-  <p>
-    <strong>Data Science Intern — Coderscave</strong><br>
-    Built ML mini-projects, performed EDA, implemented supervised models,
-    and automated data processing pipelines.
-  </p>
+  <!-- content grid -->
+  <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+    <!-- left: narrative -->
+    <div data-aos="fade-up">
+
+      <p class="text-lg text-slate-300 leading-relaxed mb-8">
+        I am an <span class="text-sky-400 font-semibold">Artificial Intelligence & Data Science</span>
+        undergraduate who enjoys working at the intersection of data, logic, and real-world
+        problem solving. My interest lies in transforming raw datasets into
+        intelligent, interpretable systems that can assist decision-making.
+      </p>
+
+      <p class="text-lg text-slate-400 leading-relaxed mb-8">
+        Over time, I have worked with machine learning pipelines, deep learning
+        architectures, and data preprocessing workflows across multiple domains —
+        from medical imaging to audio signal analysis and agricultural prediction.
+      </p>
+
+      <p class="text-lg text-slate-400 leading-relaxed">
+        I believe good AI systems are not just accurate, but
+        <span class="text-violet-400 font-semibold">understandable, scalable, and responsibly built</span>.
+        I continuously explore tools, frameworks, and concepts that help me
+        grow as an AI engineer.
+      </p>
+
+    </div>
+
+    <!-- right: visual identity block -->
+    <div class="relative" data-aos="fade-left">
+
+      <!-- glass card -->
+      <div class="relative p-10 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl">
+
+        <div class="absolute -top-6 -left-6 w-24 h-24 rounded-full bg-sky-400/20 blur-2xl"></div>
+        <div class="absolute -bottom-6 -right-6 w-24 h-24 rounded-full bg-violet-400/20 blur-2xl"></div>
+
+        <ul class="space-y-6 text-slate-300">
+
+          <li class="flex items-start gap-4">
+            <span class="text-sky-400">▹</span>
+            <span>Strong foundation in <b>Python</b> and <b>Data Structures</b></span>
+          </li>
+
+          <li class="flex items-start gap-4">
+            <span class="text-sky-400">▹</span>
+            <span>Hands-on with <b>Machine Learning</b> & <b>Deep Learning</b></span>
+          </li>
+
+          <li class="flex items-start gap-4">
+            <span class="text-sky-400">▹</span>
+            <span>Experience with <b>TensorFlow</b>, <b>Pandas</b>, <b>Streamlit</b></span>
+          </li>
+
+          <li class="flex items-start gap-4">
+            <span class="text-sky-400">▹</span>
+            <span>Interested in <b>AI Engineering</b> & real-world deployment</span>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
+<!-- =========================
+     SKILLS SECTION
+========================= -->
+<section id="skills" class="section relative overflow-hidden">
 
-<section class="flow">
-  <h2>Projects</h2>
+  <!-- subtle background glow -->
+  <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-sky-500/10 blur-[160px]"></div>
 
-  <p>
-    <strong>Brain Tumor MRI Detection</strong><br>
-    Designed a 23-layer CNN architecture, applied data augmentation,
-    and trained medical imaging models for accurate classification.
-  </p>
+  <!-- heading -->
+  <div class="mb-24 relative z-10">
+    <h2 class="section-title"
+        data-aos="fade-up">
+      Skills & Expertise
+    </h2>
+    <p class="max-w-3xl text-slate-400 text-lg mt-6"
+       data-aos="fade-up" data-aos-delay="120">
+      A focused technical toolkit built through hands-on projects,
+      internships, and continuous experimentation with modern AI systems.
+    </p>
+  </div>
 
-  <p>
-    <strong>Brain Tumor Prediction (Segmentation)</strong><br>
-    Built segmentation and classification pipelines for tumor region detection
-    using preprocessed MRI datasets.
-  </p>
+  <!-- skill streams -->
+  <div class="space-y-24 relative z-10">
 
-  <p>
-    <strong>Whale CommunicationE Communication Analysis</strong><br>
-    Processed whale audio recordings, extracted spectral features,
-    and implemented ML/DL models for sound pattern classification.
-  </p>
+    <!-- STREAM 1 -->
+    <div class="grid lg:grid-cols-2 gap-20 items-center">
 
-  <p>
-    <strong>Crop Prediction Model</strong><br>
-    Developed ML models to predict suitable crops using soil
-    and environmental parameters.
-  </p>
+      <div data-aos="fade-right">
+        <h3 class="text-2xl font-bold mb-6 text-sky-400">
+          Programming & Foundations
+        </h3>
+        <p class="text-slate-400 leading-relaxed mb-8">
+          Strong command over Python with emphasis on data structures,
+          algorithmic thinking, and writing clean, maintainable code
+          for AI-driven workflows.
+        </p>
+
+        <!-- progress bars -->
+        <div class="space-y-6">
+
+          <div>
+            <div class="flex justify-between text-sm mb-2">
+              <span>Python</span>
+              <span class="text-slate-500">Advanced</span>
+            </div>
+            <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+              <div class="skill-bar w-[0%] h-full bg-gradient-to-r from-sky-400 to-violet-400 rounded-full"
+                   data-width="92"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-sm mb-2">
+              <span>DSA (Python)</span>
+              <span class="text-slate-500">Intermediate</span>
+            </div>
+            <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+              <div class="skill-bar w-[0%] h-full bg-gradient-to-r from-sky-400 to-violet-400 rounded-full"
+                   data-width="80"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- floating labels -->
+      <div class="relative" data-aos="fade-left">
+        <div class="absolute top-0 left-0 px-5 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl">
+          Python
+        </div>
+        <div class="absolute top-24 right-0 px-5 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl">
+          Algorithms
+        </div>
+        <div class="absolute bottom-0 left-20 px-5 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl">
+          Problem Solving
+        </div>
+      </div>
+
+    </div>
+
+    <!-- STREAM 2 -->
+    <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+      <div class="order-2 lg:order-1 relative" data-aos="fade-right">
+        <div class="absolute top-10 left-10 px-5 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl">
+          CNN
+        </div>
+        <div class="absolute top-1/2 right-0 px-5 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl">
+          TensorFlow
+        </div>
+        <div class="absolute bottom-10 left-1/3 px-5 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl">
+          Model Training
+        </div>
+      </div>
+
+      <div class="order-1 lg:order-2" data-aos="fade-left">
+        <h3 class="text-2xl font-bold mb-6 text-violet-400">
+          Machine Learning & Deep Learning
+        </h3>
+        <p class="text-slate-400 leading-relaxed mb-8">
+          Experience building, training, and evaluating machine learning
+          and deep learning models with a focus on real-world datasets
+          and performance optimization.
+        </p>
+
+        <div class="space-y-6">
+
+          <div>
+            <div class="flex justify-between text-sm mb-2">
+              <span>Machine Learning</span>
+              <span class="text-slate-500">Intermediate</span>
+            </div>
+            <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+              <div class="skill-bar w-[0%] h-full bg-gradient-to-r from-violet-400 to-sky-400 rounded-full"
+                   data-width="78"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-sm mb-2">
+              <span>Deep Learning (CNN)</span>
+              <span class="text-slate-500">Intermediate</span>
+            </div>
+            <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+              <div class="skill-bar w-[0%] h-full bg-gradient-to-r from-violet-400 to-sky-400 rounded-full"
+                   data-width="74"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- STREAM 3 -->
+    <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+      <div data-aos="fade-right">
+        <h3 class="text-2xl font-bold mb-6 text-sky-400">
+          AI Engineering & Tools
+        </h3>
+        <p class="text-slate-400 leading-relaxed mb-8">
+          Familiar with building end-to-end AI workflows including data
+          preprocessing, experimentation, visualization, and lightweight
+          deployment interfaces.
+        </p>
+
+        <ul class="space-y-4 text-slate-300">
+          <li>▹ Pandas & data preprocessing pipelines</li>
+          <li>▹ TensorFlow model development</li>
+          <li>▹ Streamlit for AI app interfaces</li>
+          <li>▹ Experiment tracking & evaluation</li>
+        </ul>
+      </div>
+
+      <div data-aos="fade-left" class="relative">
+        <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-sky-400/10 to-violet-400/10 blur-2xl"></div>
+        <div class="relative p-10 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl">
+          <p class="text-slate-300">
+            “I focus on understanding the full lifecycle of an AI system —
+            from raw data to a working intelligent solution.”
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
+<!-- =========================
+     PROJECTS SECTION
+========================= -->
+<section id="projects" class="section relative overflow-hidden">
 
-<section class="flow">
-  <h2>Education</h2>
-  <p>
-    B.Tech Artificial Intelligence & Data Science<br>
-    Mohamed Sathak Engineering College (2022–2026)
-  </p>
+  <!-- background accent -->
+  <div class="absolute -top-32 right-0 w-[600px] h-[600px] bg-violet-500/10 blur-[160px]"></div>
+
+  <!-- heading -->
+  <div class="mb-28 relative z-10">
+    <h2 class="section-title"
+        data-aos="fade-up">
+      Projects
+    </h2>
+    <p class="max-w-3xl text-slate-400 text-lg mt-6"
+       data-aos="fade-up" data-aos-delay="120">
+      Selected works that demonstrate applied machine learning,
+      deep learning, and problem-oriented AI system design.
+    </p>
+  </div>
+
+  <!-- PROJECT 1 -->
+  <div class="grid lg:grid-cols-2 gap-24 items-center mb-40">
+
+    <div data-aos="fade-right">
+      <h3 class="text-3xl font-bold mb-6">
+        Brain Tumor MRI Detection
+      </h3>
+
+      <p class="text-slate-300 leading-relaxed mb-6">
+        This project focuses on designing an end-to-end deep learning pipeline
+        for detecting and classifying brain tumors from MRI scans using
+        convolutional neural networks.
+      </p>
+
+      <ul class="space-y-4 text-slate-400 mb-8">
+        <li>▹ Designed a custom <b>23-layer CNN architecture</b></li>
+        <li>▹ Applied <b>data augmentation</b> to improve generalization</li>
+        <li>▹ Performed training, validation, and accuracy evaluation</li>
+        <li>▹ Tuned hyperparameters to reduce overfitting</li>
+      </ul>
+
+      <div class="flex flex-wrap gap-4">
+        <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10">CNN</span>
+        <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10">TensorFlow</span>
+        <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10">Medical Imaging</span>
+      </div>
+    </div>
+
+    <!-- visual block -->
+    <div data-aos="fade-left" class="relative">
+      <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-sky-400/20 to-violet-400/20 blur-3xl"></div>
+      <div class="relative h-[380px] rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl flex items-center justify-center text-slate-500">
+        MRI DATA VISUALIZATION
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PROJECT 2 -->
+  <div class="grid lg:grid-cols-2 gap-24 items-center mb-40">
+
+    <!-- visual -->
+    <div data-aos="fade-right" class="relative order-2 lg:order-1">
+      <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-violet-400/20 to-sky-400/20 blur-3xl"></div>
+      <div class="relative h-[380px] rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl flex items-center justify-center text-slate-500">
+        AUDIO SIGNAL ANALYSIS
+      </div>
+    </div>
+
+    <div data-aos="fade-left" class="order-1 lg:order-2">
+      <h3 class="text-3xl font-bold mb-6">
+        Whale Communication Analysis
+      </h3>
+
+      <p class="text-slate-300 leading-relaxed mb-6">
+        An exploration into marine bioacoustics, focusing on extracting
+        meaningful patterns from whale audio recordings using signal
+        processing and machine learning techniques.
+      </p>
+
+      <ul class="space-y-4 text-slate-400 mb-8">
+        <li>▹ Processed raw audio signals and extracted spectral features</li>
+        <li>▹ Applied ML and DL models for sound classification</li>
+        <li>▹ Compared preprocessing strategies to improve accuracy</li>
+        <li>▹ Experimented with feature representations</li>
+      </ul>
+
+      <div class="flex flex-wrap gap-4">
+        <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10">Audio ML</span>
+        <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10">Signal Processing</span>
+        <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10">Deep Learning</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PROJECT 3 -->
+  <div class="grid lg:grid-cols-2 gap-24 items-center">
+
+    <div data-aos="fade-right">
+      <h3 class="text-3xl font-bold mb-6">
+        Crop Prediction Model
+      </h3>
+
+      <p class="text-slate-300 leading-relaxed mb-6">
+        A machine learning system designed to predict suitable crops
+        based on soil conditions and environmental factors, supporting
+        data-driven agricultural decisions.
+      </p>
+
+      <ul class="space-y-4 text-slate-400 mb-8">
+        <li>▹ Cleaned and preprocessed agricultural datasets</li>
+        <li>▹ Trained supervised ML models</li>
+        <li>▹ Evaluated performance using validation metrics</li>
+        <li>▹ Focused on interpretability and reliability</li>
+      </ul>
+
+      <div class="flex flex-wrap gap-4">
+        <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10">Machine Learning</span>
+        <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10">Data Cleaning</span>
+        <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10">Agriculture AI</span>
+      </div>
+    </div>
+
+    <div data-aos="fade-left" class="relative">
+      <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-sky-400/20 to-violet-400/20 blur-3xl"></div>
+      <div class="relative h-[380px] rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl flex items-center justify-center text-slate-500">
+        DATA PREDICTION FLOW
+      </div>
+    </div>
+
+  </div>
+
 </section>
+<!-- =========================
+     EXPERIENCE SECTION
+========================= -->
+<section id="experience" class="section relative overflow-hidden">
 
-<section class="flow">
-  <h2>Certifications</h2>
-  <p>
-    TATA Forage • Cisco • Great Learning • UI Path • Naan Mudhalvan
-  </p>
+  <!-- background accent -->
+  <div class="absolute -top-40 left-0 w-[600px] h-[600px] bg-sky-500/10 blur-[160px]"></div>
+
+  <!-- heading -->
+  <div class="mb-28 relative z-10">
+    <h2 class="section-title"
+        data-aos="fade-up">
+      Experience
+    </h2>
+    <p class="max-w-3xl text-slate-400 text-lg mt-6"
+       data-aos="fade-up" data-aos-delay="120">
+      Practical industry exposure through data science internships,
+      focusing on applied machine learning workflows and real-world data.
+    </p>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="relative border-l border-white/10 pl-12 space-y-32">
+
+    <!-- ITEM 1 -->
+    <div class="relative" data-aos="fade-right">
+
+      <!-- dot -->
+      <div class="absolute -left-[30px] top-1 w-4 h-4 rounded-full bg-sky-400 shadow-lg"></div>
+
+      <span class="text-sm tracking-widest text-sky-400">
+        AUG 2024 – SEP 2024
+      </span>
+
+      <h3 class="text-2xl font-bold mt-4">
+        Data Science Intern
+      </h3>
+
+      <p class="text-slate-400 mt-2 mb-6">
+        Elysium Technologies Pvt. Ltd, Madurai
+      </p>
+
+      <ul class="space-y-4 text-slate-300 leading-relaxed max-w-3xl">
+        <li>
+          ▹ Assisted in <b>data preprocessing</b>, feature extraction,
+          and preparation of datasets for machine learning models.
+        </li>
+        <li>
+          ▹ Worked on training and evaluating ML models, improving
+          workflow efficiency and technical proficiency.
+        </li>
+        <li>
+          ▹ Contributed to real-time data handling tasks and
+          documentation of AI project pipelines.
+        </li>
+      </ul>
+
+    </div>
+
+    <!-- ITEM 2 -->
+    <div class="relative" data-aos="fade-left">
+
+      <!-- dot -->
+      <div class="absolute -left-[30px] top-1 w-4 h-4 rounded-full bg-violet-400 shadow-lg"></div>
+
+      <span class="text-sm tracking-widest text-violet-400">
+        APR 2024 – MAY 2024
+      </span>
+
+      <h3 class="text-2xl font-bold mt-4">
+        Data Science Intern
+      </h3>
+
+      <p class="text-slate-400 mt-2 mb-6">
+        Coderscave (Online)
+      </p>
+
+      <ul class="space-y-4 text-slate-300 leading-relaxed max-w-3xl">
+        <li>
+          ▹ Completed multiple ML mini-projects involving
+          <b>Python, EDA, and supervised learning</b>.
+        </li>
+        <li>
+          ▹ Automated small data processing steps, increasing
+          task execution efficiency.
+        </li>
+        <li>
+          ▹ Implemented basic ML models and documented results
+          as part of structured internship modules.
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+
 </section>
+<!-- =========================
+     CONTACT SECTION
+========================= -->
+<section id="contact" class="section relative overflow-hidden">
 
-<section class="flow">
-  <h2>Beyond Tech</h2>
-  <p>
-    Exploring emerging technologies, open-source tools, creative sketching,
-    and continuous learning across AI ecosystems.
-  </p>
+  <!-- background glow -->
+  <div class="absolute inset-0 flex justify-center items-center pointer-events-none">
+    <div class="w-[800px] h-[800px] rounded-full bg-gradient-to-br from-sky-400/10 to-violet-400/10 blur-[180px]"></div>
+  </div>
+
+  <!-- content -->
+  <div class="relative z-10 text-center max-w-4xl mx-auto">
+
+    <h2 class="section-title"
+        data-aos="fade-up">
+      Let’s Connect
+    </h2>
+
+    <p class="text-lg text-slate-400 mt-6 mb-16"
+       data-aos="fade-up" data-aos-delay="120">
+      I’m always open to conversations around AI, data-driven systems,
+      learning opportunities, and collaborative projects.
+    </p>
+
+    <!-- contact cards -->
+    <div class="grid md:grid-cols-3 gap-10 mb-20">
+
+      <!-- EMAIL -->
+      <a href="mailto:faleela006@gmail.com"
+         class="group relative p-10 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-3"
+         data-aos="fade-up">
+
+        <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-sky-400/20 to-violet-400/20 opacity-0 group-hover:opacity-100 transition"></div>
+
+        <div class="relative z-10">
+          <div class="text-4xl mb-6">📧</div>
+          <h3 class="text-xl font-bold mb-2">Email</h3>
+          <p class="text-slate-400 text-sm">
+            faleela006@gmail.com
+          </p>
+        </div>
+
+      </a>
+
+      <!-- LINKEDIN -->
+      <a href="#"
+         class="group relative p-10 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-3"
+         data-aos="fade-up" data-aos-delay="120">
+
+        <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-sky-400/20 to-violet-400/20 opacity-0 group-hover:opacity-100 transition"></div>
+
+        <div class="relative z-10">
+          <div class="text-4xl mb-6">💼</div>
+          <h3 class="text-xl font-bold mb-2">LinkedIn</h3>
+          <p class="text-slate-400 text-sm">
+            Professional profile & networking
+          </p>
+        </div>
+
+      </a>
+
+      <!-- GITHUB -->
+      <a href="#"
+         class="group relative p-10 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-3"
+         data-aos="fade-up" data-aos-delay="240">
+
+        <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-sky-400/20 to-violet-400/20 opacity-0 group-hover:opacity-100 transition"></div>
+
+        <div class="relative z-10">
+          <div class="text-4xl mb-6">💻</div>
+          <h3 class="text-xl font-bold mb-2">GitHub</h3>
+          <p class="text-slate-400 text-sm">
+            Code, experiments & projects
+          </p>
+        </div>
+
+      </a>
+
+    </div>
+
+    <!-- closing line -->
+    <p class="text-sm tracking-widest text-slate-500"
+       data-aos="fade-up">
+      © 2025 • Aahila Parveen • AI & Data Science
+    </p>
+
+  </div>
+
 </section>
+<!-- =========================
+     GLOBAL JAVASCRIPT
+========================= -->
 
-<footer>
-  <p>© 2025 Aahila Parveen</p>
-</footer>
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
-<script src="script.js"></script>
+<script>
+/* =========================
+   AOS INIT
+========================= */
+AOS.init({
+  once: false,
+  duration: 1000,
+  easing: "ease-out-cubic"
+});
+
+/* =========================
+   LENIS SMOOTH SCROLL
+========================= */
+const lenis = new Lenis({
+  smooth: true,
+  lerp: 0.08
+});
+
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);
+
+/* =========================
+   GSAP + SCROLLTRIGGER
+========================= */
+gsap.registerPlugin(ScrollTrigger);
+
+/* SECTION TITLE REVEAL */
+gsap.utils.toArray(".section-title").forEach(title => {
+  gsap.from(title, {
+    scrollTrigger: {
+      trigger: title,
+      start: "top 85%"
+    },
+    y: 80,
+    opacity: 0,
+    duration: 1.2,
+    ease: "power4.out"
+  });
+});
+
+/* =========================
+   SKILL BAR ANIMATION
+========================= */
+gsap.utils.toArray(".skill-bar").forEach(bar => {
+  const width = bar.dataset.width;
+
+  gsap.to(bar, {
+    scrollTrigger: {
+      trigger: bar,
+      start: "top 90%"
+    },
+    width: width + "%",
+    duration: 1.5,
+    ease: "power3.out"
+  });
+});
+
+/* =========================
+   PROJECT PARALLAX
+========================= */
+gsap.utils.toArray("#projects .relative").forEach(block => {
+  gsap.from(block, {
+    scrollTrigger: {
+      trigger: block,
+      start: "top 90%",
+      scrub: true
+    },
+    y: 80,
+    opacity: 0
+  });
+});
+
+/* =========================
+   EXPERIENCE TIMELINE MOTION
+========================= */
+gsap.utils.toArray("#experience .relative").forEach(item => {
+  gsap.from(item, {
+    scrollTrigger: {
+      trigger: item,
+      start: "top 85%"
+    },
+    x: -60,
+    opacity: 0,
+    duration: 1,
+    ease: "power3.out"
+  });
+});
+
+/* =========================
+   NAV LINK ACTIVE STATE
+========================= */
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    if (pageYOffset >= sectionTop - 200) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove("text-sky-400");
+    if (link.getAttribute("href") === "#" + current) {
+      link.classList.add("text-sky-400");
+    }
+  });
+});
+
+/* =========================
+   OPTIONAL: CURSOR GLOW
+========================= */
+const glow = document.createElement("div");
+glow.style.position = "fixed";
+glow.style.width = "300px";
+glow.style.height = "300px";
+glow.style.borderRadius = "50%";
+glow.style.pointerEvents = "none";
+glow.style.background = "radial-gradient(circle, rgba(56,189,248,0.15), transparent 70%)";
+glow.style.transform = "translate(-50%, -50%)";
+glow.style.zIndex = "0";
+document.body.appendChild(glow);
+
+window.addEventListener("mousemove", e => {
+  glow.style.left = e.clientX + "px";
+  glow.style.top = e.clientY + "px";
+});
+</script>
+
 </body>
 </html>
