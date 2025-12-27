@@ -474,140 +474,84 @@ nav a:hover{
 
 </section>
 <!-- =========================
-     PROJECTS SECTION
+     PROJECTS SECTION (GITHUB CTA)
 ========================= -->
 <section id="projects" class="section relative overflow-hidden">
 
   <!-- background accent -->
   <div class="absolute -top-32 right-0 w-[600px] h-[600px] bg-violet-500/10 blur-[160px]"></div>
+  <div class="absolute -bottom-32 left-0 w-[600px] h-[600px] bg-sky-500/10 blur-[160px]"></div>
 
-  <!-- heading -->
-  <div class="mb-28 relative z-10">
+  <!-- content -->
+  <div class="relative z-10 max-w-5xl mx-auto text-center">
+
+    <!-- heading -->
     <h2 class="section-title"
         data-aos="fade-up">
       Projects
     </h2>
-    <p class="max-w-3xl text-slate-400 text-lg mt-6"
+
+    <p class="max-w-3xl mx-auto text-slate-400 text-lg mt-6"
        data-aos="fade-up" data-aos-delay="120">
-      Selected works that demonstrate applied machine learning,
-      deep learning, and problem-oriented AI system design.
+      I actively build, experiment, and iterate on projects related to
+      web development, cyber security, and system design.
+      All my work is openly available on GitHub.
     </p>
-  </div>
 
-  <!-- PROJECT 1 -->
-  <div class="grid lg:grid-cols-2 gap-24 items-center mb-40">
+    <!-- GITHUB CTA CARD -->
+    <div class="mt-24 flex justify-center"
+         data-aos="zoom-in" data-aos-delay="240">
 
-    <div data-aos="fade-right">
-      <h3 class="text-3xl font-bold mb-6">
-        Brain Tumor MRI Detection
-      </h3>
+      <a href="https://github.com/YOUR_GITHUB_USERNAME"
+         target="_blank"
+         class="group relative px-16 py-14 rounded-[2.5rem]
+                border border-white/10 bg-white/5 backdrop-blur-xl
+                shadow-2xl transition-all duration-500
+                hover:-translate-y-4">
 
-      <p class="text-slate-300 leading-relaxed mb-6">
-        This project focuses on designing an end-to-end deep learning pipeline
-        for detecting and classifying brain tumors from MRI scans using
-        convolutional neural networks.
-      </p>
+        <!-- glow -->
+        <div class="absolute inset-0 rounded-[2.5rem]
+                    bg-gradient-to-br from-sky-400/20 via-cyan-400/20 to-violet-400/20
+                    opacity-0 group-hover:opacity-100 transition duration-500 blur-2xl">
+        </div>
 
-      <ul class="space-y-4 text-slate-400 mb-8">
-        <li>▹ Designed a custom <b>23-layer CNN architecture</b></li>
-        <li>▹ Applied <b>data augmentation</b> to improve generalization</li>
-        <li>▹ Performed training, validation, and accuracy evaluation</li>
-        <li>▹ Tuned hyperparameters to reduce overfitting</li>
-      </ul>
+        <!-- content -->
+        <div class="relative z-10 flex flex-col items-center gap-6">
 
-      <div class="flex flex-wrap gap-4">
-        <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10">CNN</span>
-        <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10">TensorFlow</span>
-        <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10">Medical Imaging</span>
-      </div>
-    </div>
+          <!-- icon -->
+          <div class="text-6xl group-hover:scale-110 transition-transform duration-500">
+            💻
+          </div>
 
-    <!-- visual block -->
-    <div data-aos="fade-left" class="relative">
-      <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-sky-400/20 to-violet-400/20 blur-3xl"></div>
-      <div class="relative h-[380px] rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl flex items-center justify-center text-slate-500">
-        MRI DATA VISUALIZATION
-      </div>
-    </div>
+          <h3 class="text-2xl md:text-3xl font-bold">
+            View My Projects on GitHub
+          </h3>
 
-  </div>
+          <p class="text-slate-400 max-w-md">
+            Explore repositories covering full-stack web development,
+            cyber security fundamentals, secure systems, and experiments.
+          </p>
 
-  <!-- PROJECT 2 -->
-  <div class="grid lg:grid-cols-2 gap-24 items-center mb-40">
+          <!-- button -->
+          <span class="inline-flex items-center gap-3 mt-4
+                       px-8 py-4 rounded-full
+                       bg-gradient-to-r from-sky-400 to-emerald-400
+                       text-slate-900 font-bold
+                       group-hover:gap-5 transition-all duration-300">
+            Go to GitHub
+            <span class="text-xl">→</span>
+          </span>
 
-    <!-- visual -->
-    <div data-aos="fade-right" class="relative order-2 lg:order-1">
-      <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-violet-400/20 to-sky-400/20 blur-3xl"></div>
-      <div class="relative h-[380px] rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl flex items-center justify-center text-slate-500">
-        AUDIO SIGNAL ANALYSIS
-      </div>
-    </div>
+        </div>
 
-    <div data-aos="fade-left" class="order-1 lg:order-2">
-      <h3 class="text-3xl font-bold mb-6">
-        Whale Communication Analysis
-      </h3>
+      </a>
 
-      <p class="text-slate-300 leading-relaxed mb-6">
-        An exploration into marine bioacoustics, focusing on extracting
-        meaningful patterns from whale audio recordings using signal
-        processing and machine learning techniques.
-      </p>
-
-      <ul class="space-y-4 text-slate-400 mb-8">
-        <li>▹ Processed raw audio signals and extracted spectral features</li>
-        <li>▹ Applied ML and DL models for sound classification</li>
-        <li>▹ Compared preprocessing strategies to improve accuracy</li>
-        <li>▹ Experimented with feature representations</li>
-      </ul>
-
-      <div class="flex flex-wrap gap-4">
-        <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10">Audio ML</span>
-        <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10">Signal Processing</span>
-        <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10">Deep Learning</span>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- PROJECT 3 -->
-  <div class="grid lg:grid-cols-2 gap-24 items-center">
-
-    <div data-aos="fade-right">
-      <h3 class="text-3xl font-bold mb-6">
-        Crop Prediction Model
-      </h3>
-
-      <p class="text-slate-300 leading-relaxed mb-6">
-        A machine learning system designed to predict suitable crops
-        based on soil conditions and environmental factors, supporting
-        data-driven agricultural decisions.
-      </p>
-
-      <ul class="space-y-4 text-slate-400 mb-8">
-        <li>▹ Cleaned and preprocessed agricultural datasets</li>
-        <li>▹ Trained supervised ML models</li>
-        <li>▹ Evaluated performance using validation metrics</li>
-        <li>▹ Focused on interpretability and reliability</li>
-      </ul>
-
-      <div class="flex flex-wrap gap-4">
-        <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10">Machine Learning</span>
-        <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10">Data Cleaning</span>
-        <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10">Agriculture AI</span>
-      </div>
-    </div>
-
-    <div data-aos="fade-left" class="relative">
-      <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-sky-400/20 to-violet-400/20 blur-3xl"></div>
-      <div class="relative h-[380px] rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl flex items-center justify-center text-slate-500">
-        DATA PREDICTION FLOW
-      </div>
     </div>
 
   </div>
 
 </section>
+
 <!-- =========================
      EXPERIENCE SECTION
 ========================= -->
@@ -750,7 +694,7 @@ nav a:hover{
       </a>
 
       <!-- LINKEDIN -->
-      <a href="#"
+      <a href="https://www.linkedin.com/in/aahila-parveen-042bb3301/"
          class="group relative p-10 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-3"
          data-aos="fade-up" data-aos-delay="120">
 
@@ -767,7 +711,7 @@ nav a:hover{
       </a>
 
       <!-- GITHUB -->
-      <a href="#"
+      <a href="https://github.com/Aahila56"
          class="group relative p-10 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-3"
          data-aos="fade-up" data-aos-delay="240">
 
